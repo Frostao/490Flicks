@@ -1,18 +1,18 @@
 //
-//  ViewController.swift
+//  TopRatedViewController.swift
 //  Flicks
 //
-//  Created by Carl Chen on 1/11/16.
+//  Created by Carl Chen on 1/24/16.
 //  Copyright © 2016 Zhen Chen. All rights reserved.
 //
 
 import UIKit
 import AFNetworking
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+class TopRatedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var netWorkErrorView: UIView!
 
+    
     var mvs:[NSDictionary]?
     var movies:[NSDictionary]?
     let alert = UIAlertController(title: nil , message: "Loading", preferredStyle: .Alert)
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func apiRequest() {
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/top_rated?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -53,11 +53,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
             completionHandler: { (dataOrNil, response, error) in
                 if let data = dataOrNil {
-                    self.netWorkErrorView.hidden = true
                     self.collectionView.hidden = false
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            //NSLog("response: \(responseDictionary)")
+                            NSLog("response: \(responseDictionary)")
                             self.mvs = responseDictionary["results"] as? [NSDictionary]
                             self.movies = self.mvs
                             self.alert.dismissViewControllerAnimated(true, completion: nil)
@@ -66,7 +65,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 } else {
                     self.alert.dismissViewControllerAnimated(true, completion: nil)
                     self.collectionView.hidden = true
-                    self.netWorkErrorView.hidden = false
                 }
         });
         task.resume()
@@ -90,6 +88,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let index = sender as! Int
         let movie = movies![index]
         let destViewController = segue.destinationViewController as! DetailViewController
+        //destViewController.hidesBottomBarWhenPushed = true
+    
         destViewController.imageurl = "http://image.tmdb.org/t/p/w500/" + (movie["poster_path"] as! String)
         destViewController.labelTitle = movie["title"] as! String
         destViewController.overview = movie["overview"] as! String
@@ -98,7 +98,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = (collectionView.bounds.size.width-10)/2
         return CGSizeMake(width, width*7.5/5)
-
+        
     }
     
     
@@ -173,8 +173,4 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-    
 }
-
