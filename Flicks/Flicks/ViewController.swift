@@ -90,9 +90,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let index = sender as! Int
         let movie = movies![index]
         let destViewController = segue.destinationViewController as! DetailViewController
-        destViewController.imageurl = "http://image.tmdb.org/t/p/w500/" + (movie["poster_path"] as! String)
+        //destViewController.hidesBottomBarWhenPushed = true
+        self.tabBarController?.tabBar.hidden = true
+        destViewController.imagePath = movie["poster_path"] as! String
         destViewController.labelTitle = movie["title"] as! String
         destViewController.overview = movie["overview"] as! String
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -108,14 +114,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.blueColor()
         cell.selectedBackgroundView = backgroundView
-        let URL = "http://image.tmdb.org/t/p/w500/"
+        let url1 = "http://image.tmdb.org/t/p/w500/"
+        
         if let imagePath = movie["poster_path"] as? String {
-            let imageURL = NSURL(string: URL + imagePath)
+            let imageURL = NSURL(string: url1 + imagePath)
             
             let urlRequest = NSURLRequest(URL: imageURL!)
+            //let largeImageRequest = NSURLRequest(URL: NSURL(string: url2 + imagePath)!)
             
             cell.image.setImageWithURLRequest(urlRequest, placeholderImage: nil, success: { (imageRequest, imageResponse, image) -> Void in
                 // response is nil when image returned from cache
+                
                 if imageResponse != nil {
                     print("Image was NOT cached, fade in image")
                     cell.image.alpha = 0
@@ -161,6 +170,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
+        searchBar.text = ""
+        movies = mvs
+        collectionView.reloadData()
         searchBar.resignFirstResponder()
     }
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {

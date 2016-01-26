@@ -209,7 +209,7 @@
         <scene sceneID="SxH-Js-7sH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x54-cp-ujN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Now Playing" id="8eL-to-upO"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="Play-50" selectedImage="Play Filled-50" id="8eL-to-upO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fN8-NN-HSz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -331,7 +331,7 @@
         <scene sceneID="qsk-wF-VZu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2r3-ex-AXq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Rated" id="SMI-2k-Agc"/>
+                    <tabBarItem key="tabBarItem" title="Top Rated" image="Star" selectedImage="Star Filled-50" id="SMI-2k-Agc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oxm-gc-70W">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -347,6 +347,12 @@
             <point key="canvasLocation" x="1130" y="1102"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Play Filled-50" width="25" height="25"/>
+        <image name="Play-50" width="25" height="25"/>
+        <image name="Star" width="25" height="25"/>
+        <image name="Star Filled-50" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6GG-vB-QmM"/>
     </inferredMetricsTieBreakers>

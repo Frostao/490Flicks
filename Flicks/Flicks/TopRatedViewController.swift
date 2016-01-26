@@ -89,10 +89,14 @@ class TopRatedViewController: UIViewController, UICollectionViewDataSource, UICo
         let movie = movies![index]
         let destViewController = segue.destinationViewController as! DetailViewController
         //destViewController.hidesBottomBarWhenPushed = true
-    
-        destViewController.imageurl = "http://image.tmdb.org/t/p/w500/" + (movie["poster_path"] as! String)
+        self.tabBarController?.tabBar.hidden = true
+        destViewController.imagePath = movie["poster_path"] as! String
         destViewController.labelTitle = movie["title"] as! String
         destViewController.overview = movie["overview"] as! String
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
