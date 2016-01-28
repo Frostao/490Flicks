@@ -63,6 +63,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		840BB80A1C5AB0D500336AB8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8420B43C1C43C7A4009BBD8A /* ViewController.swift */,
+				841AA3261C55D562003C1895 /* DetailViewController.swift */,
+				841AA3241C55CECD003C1895 /* TopRatedViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		8420B42E1C43C7A4009BBD8A = {
 			isa = PBXGroup;
 			children = (
@@ -85,11 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				8420B43A1C43C7A4009BBD8A /* AppDelegate.swift */,
-				8420B43C1C43C7A4009BBD8A /* ViewController.swift */,
+				840BB80A1C5AB0D500336AB8 /* ViewControllers */,
 				8420B44C1C4C5D30009BBD8A /* MovieCollectionViewCell.swift */,
 				8420B43E1C43C7A4009BBD8A /* Main.storyboard */,
-				841AA3261C55D562003C1895 /* DetailViewController.swift */,
-				841AA3241C55CECD003C1895 /* TopRatedViewController.swift */,
 				8420B4411C43C7A4009BBD8A /* Assets.xcassets */,
 				8420B4431C43C7A4009BBD8A /* LaunchScreen.storyboard */,
 				8420B4461C43C7A4009BBD8A /* Info.plist */,
@@ -132,6 +140,7 @@
 				TargetAttributes = {
 					8420B4361C43C7A4009BBD8A = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4VX52VR8GM;
 					};
 				};
 			};
@@ -337,6 +346,7 @@
 			baseConfigurationReference = 53DFA6406A450E43EE5DE6A8 /* Pods-Flicks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Flicks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = frostao.Flicks;
@@ -349,6 +359,7 @@
 			baseConfigurationReference = 0A2F3DA88DFCAEFD400A8A9D /* Pods-Flicks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Flicks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = frostao.Flicks;

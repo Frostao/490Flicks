@@ -15,6 +15,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     var mvs:[NSDictionary]?
     var movies:[NSDictionary]?
+    var lastSelected:NSIndexPath?
     let alert = UIAlertController(title: nil , message: "Loading", preferredStyle: .Alert)
     
     override func viewDidLoad() {
@@ -83,6 +84,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("showDetail", sender: indexPath.item)
+        lastSelected = indexPath
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -97,12 +99,26 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         destViewController.overview = movie["overview"] as! String
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.tabBar.hidden = false
+    
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
+        if let lastSelected = lastSelected {
+            self.collectionView.deselectItemAtIndexPath(lastSelected, animated: true)
+    
+        }
+    }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width = (collectionView.bounds.size.width-10)/2
+        let width = (collectionView.bounds.size.width)/2
         return CGSizeMake(width, width*7.5/5)
 
     }

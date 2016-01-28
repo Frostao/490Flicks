@@ -151,7 +151,7 @@
                                 <rect key="frame" x="0.0" y="341" width="600" height="210"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="453-zB-JfW">
-                                        <rect key="frame" x="5" y="42" width="590" height="168"/>
+                                        <rect key="frame" x="10" y="42" width="585" height="168"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="193" id="di8-Yd-Tgk"/>
@@ -166,7 +166,7 @@
                                         </variation>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LQ-9n-1Zd">
-                                        <rect key="frame" x="10" y="16" width="34" height="21"/>
+                                        <rect key="frame" x="15" y="16.5" width="33.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -176,9 +176,9 @@
                                 <constraints>
                                     <constraint firstItem="453-zB-JfW" firstAttribute="height" secondItem="zDY-wy-axy" secondAttribute="height" multiplier="0.8" id="99E-qf-XeH"/>
                                     <constraint firstAttribute="bottom" secondItem="453-zB-JfW" secondAttribute="bottom" id="AVG-lP-SQz"/>
-                                    <constraint firstItem="453-zB-JfW" firstAttribute="leading" secondItem="zDY-wy-axy" secondAttribute="leading" constant="5" id="H01-ee-DU8"/>
+                                    <constraint firstItem="453-zB-JfW" firstAttribute="leading" secondItem="zDY-wy-axy" secondAttribute="leading" constant="10" id="H01-ee-DU8"/>
                                     <constraint firstAttribute="trailing" secondItem="453-zB-JfW" secondAttribute="trailing" constant="5" id="KgF-da-pNT"/>
-                                    <constraint firstItem="0LQ-9n-1Zd" firstAttribute="leading" secondItem="zDY-wy-axy" secondAttribute="leading" constant="10" id="afE-nj-GNb"/>
+                                    <constraint firstItem="0LQ-9n-1Zd" firstAttribute="leading" secondItem="zDY-wy-axy" secondAttribute="leading" constant="15" id="afE-nj-GNb"/>
                                     <constraint firstItem="453-zB-JfW" firstAttribute="top" secondItem="0LQ-9n-1Zd" secondAttribute="bottom" constant="5" id="laC-jN-bFs"/>
                                 </constraints>
                             </view>

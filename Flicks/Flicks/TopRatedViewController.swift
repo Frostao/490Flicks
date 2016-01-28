@@ -15,6 +15,7 @@ class TopRatedViewController: UIViewController, UICollectionViewDataSource, UICo
     
     var mvs:[NSDictionary]?
     var movies:[NSDictionary]?
+    var lastSelected:NSIndexPath?
     let alert = UIAlertController(title: nil , message: "Loading", preferredStyle: .Alert)
     
     override func viewDidLoad() {
@@ -97,6 +98,10 @@ class TopRatedViewController: UIViewController, UICollectionViewDataSource, UICo
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.tabBar.hidden = false
+        if let lastSelected = lastSelected {
+            self.collectionView.deselectItemAtIndexPath(lastSelected, animated: true)
+            
+        }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

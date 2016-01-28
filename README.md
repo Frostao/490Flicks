@@ -49,8 +49,13 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
-- [ ] Customize the navigation bar.
+- [X] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+- [X] Customize the navigation bar.
+
+The following **additional** features are implemented:
+
+- [X] Support auto-layout. It works on different screen sizes.
+- [X] Customize the Tab bar.
 
 
 ## Video Walkthrough 
